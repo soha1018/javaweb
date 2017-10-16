@@ -1,1 +1,2 @@
-<h1>this is one</h1>
+<button class="send-ajax">send ajax</button>
+

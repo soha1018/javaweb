@@ -10,6 +10,7 @@
 		<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 		<html>
 		<head>
+<!-- 		主页面 -->
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<link rel="stylesheet"type="text/css" href="<c:url value="/resources/bootstrap-3.3.7-dist/css/bootstrap.min.css"/>">
 		<title>Insert title here</title>
@@ -28,7 +29,6 @@
 		  		width: 900px;
 		  		height: 300px;
 		  		margin: 0 auto;
-		  		border: 1px solid red;
 		  		position: relative;
 		  		margin-top: 40px;
 		  	}
@@ -67,18 +67,18 @@
 			}
 			.collect{
 				width: 100%;
-				border: 1px solid red;
+
 				height: 500px;
 			}
-			.collect > .collect-head{
+			.collect-head{
 				width: 100%;
 				height: 30px;
+
 				background-color: #DCDCDC;
 				border-radius: 6px;
 			}
-			
-		
-			.collect > .collect-head > h4{
+
+			.collect-head > h4{
 				    height: 30px;
 				    line-height: 30px;
 			}
@@ -98,14 +98,38 @@
 			.collect > .nav > li:nth-child(4){
 				margin-left: 120px;
 			}
-			#t1{
+			.collect > #t1{
 				    margin-left: 31px;
 			}
 			.tab-content {
 				width: 100%;
 				height: 500px;
-				border: 1px solid red; 
 			}
+			
+			.contact-person > ul > li{
+				float: left;
+				margin-left: 200px;
+			}
+			
+			.contact-person > #t1{
+				margin-left: 200px;
+			}
+			.contact-person > .addperson-btn{
+				float: right;
+				
+			}
+			.contact-person > .myaddperson{
+				margin-top: 194px;
+			}
+			.myorder-content > .content-myorder {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.myorder-content > nav{
+					 position: absolute;
+     				bottom: 0px; 
+ 			}
 		  </style>
 		
 		<body>
@@ -129,10 +153,10 @@
   				<div class = "content-body">
   <div class="tab-content"  >
     <div class="tab-pane active my-order" id="1">
-     <jsp:include page="search.jsp" />
+     <jsp:include page="myorder.jsp" />
     </div>
     <div class="tab-pane contact-person" id="2">
-      <p>2</p>
+      <jsp:include page="person.jsp"></jsp:include>
     </div>
     
      <div class="tab-pane collect" id="3">
@@ -164,7 +188,6 @@
 		 					roadting[0].src =  images[i];
 		 					changeColor(i);
 		 				});
-		 				
 		 				let head = $(".content > .content-head");
 		 				head.on("click", function(e){
 		 					let type = $(e.target).text();
@@ -228,6 +251,20 @@
 						}
 		  			}
 		  			
+		  			
+		  			/**
+		  			ajax测试
+		  			**/
+		  			
+		  			$(".send-ajax").on("click", function(){
+		  				$.ajax({
+		  					url: "main",
+		  					method: "POST",
+		  					data:{"username":1}
+		  				}).done(function(data){
+		  					console.log(data + "...");
+		  				});
+		  			});
 		 	 	</script>
 		</body>
 		</html>
